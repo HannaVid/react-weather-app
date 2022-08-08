@@ -1,0 +1,105 @@
+:root {
+  --main-bg-color: rgb(5 5 7/ 70%);
+  --main-box-shadow: 0 0 20px #362e2d;
+}
+
+.Weather .wrapper {
+  background-color: var(--main-bg-color);
+  margin: 40px 75px;
+  padding: 40px;
+}
+
+.Weather a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* The style of the search block */
+
+.Weather form {
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Weather .search-item,
+.button-item {
+  border: none;
+  outline: none;
+}
+
+.Weather .search-item {
+  padding: 6px 12px;
+}
+
+.Weather .search-item:focus {
+  box-shadow: var(--main-box-shadow);
+  /* box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%); */
+}
+
+.Weather .button-item {
+  padding: 6px 6px 6px 8px;
+  background-color: var(--main-bg-color);
+  transition: all 200ms ease-in-out;
+}
+
+.Weather form img {
+  transition: all 200ms ease-in-out;
+}
+
+.Weather form img:hover {
+  transform: scale(1.1);
+}
+
+.Weather .button-item:hover {
+  background-color: rgb(5 5 7/ 10%);
+  box-shadow: 0 0 10px #362e2d;
+}
+
+/*The style of the weather today */
+
+.Weather h1 {
+  font-size: 1.75rem;
+}
+
+.Weather h2 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.Weather .current-temp {
+  font-size: 100px;
+  font-weight: 400;
+}
+
+.Weather .convert-units {
+  font-size: 20px;
+  position: relative;
+  top: -74px;
+}
+
+.Weather .current-img {
+  max-height: 175px;
+  width: 100%;
+}
+
+.Weather .description {
+  text-transform: uppercase;
+}
+
+/* The style of the footer */
+.Weather footer {
+  margin-top: 50px;
+}
+
+.Weather footer li {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-align: center;
+  word-spacing: 4px;
+}
+
+.Weather footer a {
+  text-decoration: underline;
+}

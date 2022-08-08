@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-attachment: fixed;
+  background-color: #362e2d;
+  background-image: url("https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  color: #fff;
+  font-family: "Prompt", sans-serif;
+  min-width: 540px;
+  mix-blend-mode: myltiply;
+}

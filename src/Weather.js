@@ -3,6 +3,7 @@ import "./Weather.css";
 import Search from "./images/Search.svg";
 import Location from "./images/Location.svg";
 import axios from "axios";
+import FormatDate from "./FormatDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -18,8 +19,7 @@ export default function Weather(props) {
       ready: true,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
-      time: "17:28",
-      day: "Monday",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description.toUpperCase(),
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
@@ -61,8 +61,9 @@ export default function Weather(props) {
         <div className="row wrapper">
           <div className="col-12"></div>
           <hr />
-          <h1>{weatherData.day}</h1>
-          <div>Last updated: {weatherData.time}</div>
+          {/* <h1>{weatherData.day}</h1>
+          <div>Last updated: {weatherData.time}</div> */}
+          <FormatDate date={weatherData.date} />
           <h2>London</h2>
           <div className="row">
             <div className="col-6">

@@ -7,10 +7,11 @@ import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.cityDefault);
+  const apiKey = "227c2b4793ca0c16e450b597ecdebe79";
 
   function searchWeatherData() {
-    const apiKey = "227c2b4793ca0c16e450b597ecdebe79";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityDefault}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -27,18 +28,47 @@ export default function Weather(props) {
     });
   }
 
+  function handleSearch(event) {
+    event.preventDefault();
+    if (city) {
+      searchWeatherData();
+    } else {
+      alert("Enter a city name!");
+    }
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function getCurrentCoords(event) {
+    event.preventDefault();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(searchLocation);
+    } else {
+      alert("Unable to retrieve your location");
+    }
+  }
+  function searchLocation(position) {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
           <input
             type="search"
-            placeHolder="Enter a city..."
+            placeholder="Enter a city..."
             autoFocus="on"
             autoComplete="off"
             className="search-item"
+            onChange={handleCityChange}
           />
-          <button type="submit" className="button-item">
+          <button className="button-item" onClick={handleSearch}>
             <img
               src={Search}
               width={20}
@@ -47,7 +77,7 @@ export default function Weather(props) {
               title="Press to know weather"
             ></img>
           </button>
-          <button type="submit" className="button-item">
+          <button className="button-item" onClick={getCurrentCoords}>
             <img
               src={Location}
               width={20}

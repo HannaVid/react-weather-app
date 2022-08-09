@@ -7,7 +7,7 @@ export default function WeatherInfo(props) {
       <div className="col-12"></div>
       <hr />
       <FormatDate date={props.data.date} />
-      <h2>London</h2>
+      <h2>{props.data.city}</h2>
       <div className="row">
         <div className="col-6">
           <span className="current-temp">

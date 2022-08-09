@@ -3,8 +3,7 @@ import "./Weather.css";
 import Search from "./images/Search.svg";
 import Location from "./images/Location.svg";
 import axios from "axios";
-import FormatDate from "./FormatDate";
-import Footer from "./Footer";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -58,34 +57,7 @@ export default function Weather(props) {
             ></img>
           </button>
         </form>
-        <div className="row wrapper">
-          <div className="col-12"></div>
-          <hr />
-          <FormatDate date={weatherData.date} />
-          <h2>London</h2>
-          <div className="row">
-            <div className="col-6">
-              <span className="current-temp">
-                {Math.round(weatherData.temperature)}
-              </span>
-              <span className="convert-units">°C | °F</span>
-            </div>
-            <div className="col-6">
-              <img
-                src={weatherData.icon}
-                alt={weatherData.description}
-                className="current-img"
-              />
-            </div>
-            <ul className="list-unstyled">
-              <li className="description">Clear sky</li>
-              <li>Humidity: {Math.round(weatherData.humidity)}%</li>
-              <li>Wind: {Math.round(weatherData.wind)} metre/sec</li>
-            </ul>
-          </div>
-          <hr />
-          <Footer />
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {

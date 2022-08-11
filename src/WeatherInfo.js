@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import FormatDate from "./FormatDate";
+
 export default function WeatherInfo(props) {
   return (
     <div className="row wrapper">
@@ -18,6 +19,8 @@ export default function WeatherInfo(props) {
         <div className="col-6">
           <img
             src={props.data.icon}
+            // src="icons/01d.svg"
+
             alt={props.data.description}
             className="current-img"
           />

@@ -82,7 +82,18 @@
 .Weather .current-img {
   max-height: 175px;
   width: 100%;
+  /* opacity: 0; */
+  /* animation: moving-img 2.5s; */
 }
+
+/* @keyframes moving-img {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
 
 .Weather .description {
   text-transform: uppercase;

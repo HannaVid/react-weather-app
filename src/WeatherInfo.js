@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import FormatDate from "./FormatDate";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -11,10 +12,7 @@ export default function WeatherInfo(props) {
       <h2>{props.data.city}</h2>
       <div className="row">
         <div className="col-6">
-          <span className="current-temp">
-            {Math.round(props.data.temperature)}
-          </span>
-          <span className="convert-units">°C | °F</span>
+          <WeatherTemperature celsius={props.data.temperature} />
         </div>
         <div className="col-6">
           <img
